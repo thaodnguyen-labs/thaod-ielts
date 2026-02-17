@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
 // Scroll animations
 const fadeElements = document.querySelectorAll(
     '.about-card, .timeline-item, .career-card, .test-card-small, .ielts-card, ' +
-    '.knowledge-item, .course-card, .result-card, .summary-item, .contact-card'
+    '.knowledge-item, .course-card, .student-bubble, .summary-item, .contact-card'
 );
 
 fadeElements.forEach(el => el.classList.add('fade-in'));
