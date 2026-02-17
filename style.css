@@ -147,6 +147,38 @@ ul {
     transition: var(--transition);
 }
 
+/* ===== Language Toggle ===== */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+    margin-left: 8px;
+}
+
+.lang-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.lang-flag {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.lang-text {
+    letter-spacing: 0.5px;
+}
+
 /* ===== Buttons ===== */
 .btn {
     display: inline-flex;
@@ -877,14 +909,34 @@ ul {
 
 /* ===== Results Section ===== */
 
-/* Student Bubbles */
-.students-bubbles {
+/* Band Rows */
+.band-row {
+    margin-bottom: 32px;
+}
+
+.band-row:last-of-type {
+    margin-bottom: 60px;
+}
+
+.band-row-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-left: 4px;
+}
+
+.band-8-label { color: #d97706; }
+.band-7-label { color: var(--primary); }
+.band-6-label { color: #059669; }
+
+.band-row-bubbles {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    margin-bottom: 60px;
 }
+
+/* Student Bubbles */
 
 .student-bubble {
     background: white;
@@ -1178,13 +1230,18 @@ ul {
         grid-template-columns: 1fr;
     }
 
-    .students-bubbles {
+    .band-row-bubbles {
         gap: 14px;
     }
 
     .student-bubble {
         width: 140px;
         padding: 20px 16px;
+    }
+
+    .lang-toggle {
+        margin-left: 0;
+        align-self: flex-start;
     }
 
     .results-summary {

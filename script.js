@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
 // Scroll animations
 const fadeElements = document.querySelectorAll(
     '.about-card, .timeline-item, .career-card, .test-card-small, .ielts-card, ' +
-    '.knowledge-item, .course-card, .student-bubble, .summary-item, .contact-card'
+    '.knowledge-item, .course-card, .student-bubble, .band-row, .summary-item, .contact-card'
 );
 
 fadeElements.forEach(el => el.classList.add('fade-in'));
@@ -67,3 +67,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== Language Toggle =====
+let currentLang = 'en';
+const langToggle = document.getElementById('langToggle');
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-en / data-vi attributes
+    document.querySelectorAll('[data-en][data-vi]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+
+    // Update toggle button
+    const flagSpan = langToggle.querySelector('.lang-flag');
+    const textSpan = langToggle.querySelector('.lang-text');
+    if (lang === 'en') {
+        flagSpan.textContent = '\u{1F1EC}\u{1F1E7}';
+        textSpan.textContent = 'EN';
+    } else {
+        flagSpan.textContent = '\u{1F1FB}\u{1F1F3}';
+        textSpan.textContent = 'VI';
+    }
+
+    // Save preference
+    localStorage.setItem('lang', lang);
+}
+
+langToggle.addEventListener('click', () => {
+    switchLanguage(currentLang === 'en' ? 'vi' : 'en');
+});
+
+// Load saved language preference (default English)
+const savedLang = localStorage.getItem('lang') || 'en';
+if (savedLang !== 'en') {
+    switchLanguage(savedLang);
+}
