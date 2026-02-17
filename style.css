@@ -918,22 +918,11 @@ ul {
     margin-bottom: 60px;
 }
 
-.band-row-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    padding-left: 4px;
-}
-
-.band-8-label { color: #d97706; }
-.band-7-label { color: var(--primary); }
-.band-6-label { color: #059669; }
-
 .band-row-bubbles {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 /* Student Bubbles */
